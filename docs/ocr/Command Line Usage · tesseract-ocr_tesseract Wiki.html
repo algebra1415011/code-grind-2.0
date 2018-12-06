@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+  <link rel="dns-prefetch" href="https://assets-cdn.github.com/">
+  <link rel="dns-prefetch" href="https://avatars0.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://avatars1.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://avatars2.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com/">
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+
+
+
+  <link crossorigin="anonymous" media="all" integrity="sha512-lLo2nlsdl+bHLu6PGvC2j3wfP45RnK4wKQLiPnCDcuXfU38AiD+JCdMywnF3WbJC1jaxe3lAI6AM4uJuMFBLEw==" rel="stylesheet" href="Command%20Line%20Usage%20%C2%B7%20tesseract-ocr_tesseract%20Wiki_files/frameworks-08fc49d3bd2694c870ea23d0906f3610.css">
+  <link crossorigin="anonymous" media="all" integrity="sha512-4bsutQdbWE5qcKS0bskmuRIZDiHn+kQ8XqWrj5TJLo8uttYTDt5Onp7bxAvepa2WAJl+tAtFzRgWnykPJ3zrhw==" rel="stylesheet" href="Command%20Line%20Usage%20%C2%B7%20tesseract-ocr_tesseract%20Wiki_files/github-305db19fc42a0e30f095f7098e1b21a5.css">
+  
+  
+  
+  
+  
+
+  <meta name="viewport" content="width=device-width">
+  
+  <title>Command Line Usage · tesseract-ocr/tesseract Wiki</title>
+    <meta name="description" content="Tesseract Open Source OCR Engine (main repository) - tesseract-ocr/tesseract">
+    <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub">
+  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+  <meta property="fb:app_id" content="1401488693436528">
+
+    
+    <meta property="og:image" content="https://avatars2.githubusercontent.com/u/8401422?s=400&amp;v=4"><meta property="og:site_name" content="GitHub"><meta property="og:type" content="object"><meta property="og:title" content="tesseract-ocr/tesseract"><meta property="og:url" content="https://github.com/tesseract-ocr/tesseract"><meta property="og:description" content="Tesseract Open Source OCR Engine (main repository) - tesseract-ocr/tesseract">
+
+  <link rel="assets" href="https://assets-cdn.github.com/">
+  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6MzQ4ODE1MDkzOjMxZjc2OTVmMTFiNGFhYjc4YWZjMjgwZDdkYWE5MzE1YjM0NDFhM2FjNzYwYjI0N2IzYTc1YjE0NzRhYzE0N2Q=--eed1a9782fe45b3da672e7c9edfd873c8738a5f0">
+  <meta name="pjax-timeout" content="1000">
+  <link rel="sudo-modal" href="https://github.com/sessions/sudo_modal">
+  <meta name="request-id" content="2EE7:2203:2793EDF:4A0B537:5C09133C" data-pjax-transient="">
+
+
+  
+
+  <meta name="selected-link" value="repo_wiki" data-pjax-transient="">
+
+      <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+    <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+    <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
+
+  <meta name="octolytics-host" content="collector.githubapp.com"><meta name="octolytics-app-id" content="github"><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event"><meta name="octolytics-dimension-request_id" content="2EE7:2203:2793EDF:4A0B537:5C09133C"><meta name="octolytics-dimension-region_edge" content="iad"><meta name="octolytics-dimension-region_render" content="iad"><meta name="octolytics-actor-id" content="12850602"><meta name="octolytics-actor-login" content="kartik-nighania"><meta name="octolytics-actor-hash" content="d1b9d95d1013bb8eacbd270e82c73e7a960c3cd018c62e90b986b93d960d6040">
+<meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/wiki/show" data-pjax-transient="true">
+
+
+
+    <meta name="google-analytics" content="UA-3769691-2">
+
+  <meta class="js-ga-set" name="userId" content="75f8e2c180918a2932ba0c5510dafb7d" %="">
+
+<meta class="js-ga-set" name="dimension1" content="Logged In">
+
+
+
+  
+
+      <meta name="hostname" content="github.com">
+    <meta name="user-login" content="kartik-nighania">
+
+      <meta name="expected-hostname" content="github.com">
+    <meta name="js-proxy-site-detection-payload" content="ZGFlYTg4ZmJhZDA3MmU4YWI1MDJiMTJjNmJkY2E2YjIxMzM4ZDNmZWZiNzc5YWJhMjM0MTNlMzc1MGQ0MzA4Ynx7InJlbW90ZV9hZGRyZXNzIjoiMjcuMTEwLjc5LjIwNCIsInJlcXVlc3RfaWQiOiIyRUU3OjIyMDM6Mjc5M0VERjo0QTBCNTM3OjVDMDkxMzNDIiwidGltZXN0YW1wIjoxNTQ0MDk4NjM0LCJob3N0IjoiZ2l0aHViLmNvbSJ9">
+
+    <meta name="enabled-features" content="DASHBOARD_V2_LAYOUT_OPT_IN,EXPLORE_DISCOVER_REPOSITORIES,UNIVERSE_BANNER,MARKETPLACE_PLAN_RESTRICTION_EDITOR,NOTIFY_ON_BLOCK,TIMELINE_COMMENT_UPDATES,ISSUE_TEMPLATES_PIONEER,RELATED_ISSUES,MARKETPLACE_INSIGHTS_V2">
+
+  <meta name="html-safe-nonce" content="f3d184a4345c1e2cffde40d9e87be9ca784e9a6e">
+
+  <meta http-equiv="x-pjax-version" content="35976fc262c7c0487ce907894d83cf5d">
+  
+
+      <link href="https://github.com/tesseract-ocr/tesseract/commits/master.atom" rel="alternate" title="Recent Commits to tesseract:master" type="application/atom+xml">
+
+  <meta name="go-import" content="github.com/tesseract-ocr/tesseract git https://github.com/tesseract-ocr/tesseract.git">
+
+  <meta name="octolytics-dimension-user_id" content="8401422"><meta name="octolytics-dimension-user_login" content="tesseract-ocr"><meta name="octolytics-dimension-repository_id" content="22887094"><meta name="octolytics-dimension-repository_nwo" content="tesseract-ocr/tesseract"><meta name="octolytics-dimension-repository_public" content="true"><meta name="octolytics-dimension-repository_is_fork" content="false"><meta name="octolytics-dimension-repository_network_root_id" content="22887094"><meta name="octolytics-dimension-repository_network_root_nwo" content="tesseract-ocr/tesseract"><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="false">
+
+
+
+
+  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+
+  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+
+  <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#000000">
+  <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://assets-cdn.github.com/favicon.ico">
+
+<meta name="theme-color" content="#1e2327">
+
+
+
+  <link rel="manifest" href="https://github.com/manifest.json" crossorigin="use-credentials">
+
+  </head>
+
+  <body class="logged-in env-production page-responsive min-width-0">
+    
+
+  <div class="position-relative js-header-wrapper ">
+    <a href="#start-of-content" tabindex="1" class="p-3 bg-blue text-white show-on-focus js-skip-to-content">Skip to content</a>
+    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
+
+    
+    
+    
+
+
+        
+<header class="Header js-details-container Details f5" role="banner">
+  <div class="d-lg-flex p-responsive flex-justify-between px-3 ">
+    <div class="d-flex flex-justify-between flex-items-center">
+      <div class="d-none d-lg-block">
+        <a class="header-logo-invertocat" href="https://github.com/" data-hotkey="g d" aria-label="Homepage" data-ga-click="Header, go to dashboard, icon:logo">
+  <svg height="32" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+</a>
+
+      </div>
+
+
+        <button class="btn-link mt-1 js-details-target d-lg-none" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <svg height="24" class="octicon octicon-three-bars notification-indicator" viewBox="0 0 12 16" version="1.1" width="18" aria-hidden="true"><path fill-rule="evenodd" d="M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z"></path></svg>
+        </button>
+        <div class="d-lg-none css-truncate css-truncate-target width-fit px-3">
+          
+              <svg class="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+    <strong><a class="text-white" href="https://github.com/tesseract-ocr">tesseract-ocr</a></strong>
+    /
+    <strong><a class="text-white" href="https://github.com/tesseract-ocr/tesseract">tesseract</a></strong>
+
+
+        </div>
+        <div class="d-flex d-lg-none">
+          <div>
+            
+    <a aria-label="You have unread notifications" class="notification-indicator tooltipped tooltipped-s my-2 my-lg-0 js-socket-channel js-notification-indicator" data-hotkey="g n" data-ga-click="Header, go to notifications, icon:unread" data-channel="notification-changed:12850602" href="https://github.com/notifications">
+        <span class="mail-status unread"></span>
+        <svg class="octicon octicon-bell" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 12v1H0v-1l.73-.58c.77-.77.81-2.55 1.19-4.42C2.69 3.23 6 2 6 2c0-.55.45-1 1-1s1 .45 1 1c0 0 3.39 1.23 4.16 5 .38 1.88.42 3.66 1.19 4.42l.66.58H14zm-7 4c1.11 0 2-.89 2-2H5c0 1.11.89 2 2 2z"></path></svg>
+</a>
+          </div>
+        </div>
+
+    </div>
+
+    <div class="HeaderMenu d-lg-flex flex-justify-between flex-auto">
+      <nav class="d-lg-flex" aria-label="Global">
+            <div class="py-3 py-lg-0">
+              <div class="header-search scoped-search site-scoped-search js-site-search position-relative js-jump-to" role="combobox" aria-owns="jump-to-results" aria-label="Search or jump to" aria-haspopup="listbox" aria-expanded="false">
+  <div class="position-relative">
+    <!-- '"` --><!-- </textarea></xmp> --><form class="js-site-search-form" data-scope-type="Repository" data-scope-id="22887094" data-scoped-search-url="/tesseract-ocr/tesseract/search" data-unscoped-search-url="/search" action="/tesseract-ocr/tesseract/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+      <label class="form-control header-search-wrapper header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center js-chromeless-input-container">
+        <input type="text" class="form-control header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable" data-hotkey="s,/" name="q" placeholder="Search or jump to…" data-unscoped-placeholder="Search or jump to…" data-scoped-placeholder="Search or jump to…" autocapitalize="off" aria-autocomplete="list" aria-controls="jump-to-results" aria-label="Search or jump to…" data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=6oFY+juu91uVKOG8eeJCSHtcsYnG8jksUngyu2g0/JkOBvuNKiDwQgnYMzaKQ14QiTsIrnxhfzqrNRZQT2n3+g==" spellcheck="false" autocomplete="off">
+          <input type="hidden" class="js-site-search-type-field" name="type">
+            <img src="Command%20Line%20Usage%20%C2%B7%20tesseract-ocr_tesseract%20Wiki_files/search-key-slash.svg" alt="" class="mr-2 header-search-key-slash">
+
+            <div class="Box position-absolute overflow-hidden d-none jump-to-suggestions js-jump-to-suggestions-container">
+              
+<ul class="d-none js-jump-to-suggestions-template-container">
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-suggestion" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"></path></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+        In this repository
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+</ul>
+
+<ul class="d-none js-jump-to-no-results-template-container">
+  <li class="d-flex flex-justify-center flex-items-center f5 d-none js-jump-to-suggestion p-2">
+    <span class="text-gray">No suggested jump to results</span>
+  </li>
+</ul>
+
+<ul id="jump-to-results" role="listbox" class="p-0 m-0 js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container">
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-scoped-search d-none" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"></path></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+        In this repository
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-global-search d-none" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"></path></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+        In this repository
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+
+    <li class="d-flex flex-justify-center flex-items-center p-0 f5 js-jump-to-suggestion">
+      <img src="Command%20Line%20Usage%20%C2%B7%20tesseract-ocr_tesseract%20Wiki_files/octocat-spinner-128.gif" alt="Octocat Spinner Icon" class="m-2" width="28">
+    </li>
+</ul>
+
+            </div>
+      </label>
+</form>  </div>
+</div>
+
+            </div>
+
+          <ul class="d-lg-flex pl-lg-2 flex-items-center text-bold list-style-none">
+            <li class="d-lg-none">
+              <a class="HeaderNavlink px-lg-2 py-2 py-lg-0" data-ga-click="Header, click, Nav menu - item:dashboard:user" aria-label="Dashboard" href="https://github.com/dashboard">
+                Dashboard
+</a>            </li>
+            <li>
+              <a class="js-selected-navigation-item HeaderNavlink px-lg-2 py-2 py-lg-0" data-hotkey="g p" data-ga-click="Header, click, Nav menu - item:pulls context:user" aria-label="Pull requests you created" data-selected-links="/pulls /pulls/assigned /pulls/mentioned /pulls" href="https://github.com/pulls">
+                Pull requests
+</a>            </li>
+            <li>
+              <a class="js-selected-navigation-item HeaderNavlink px-lg-2 py-2 py-lg-0" data-hotkey="g i" data-ga-click="Header, click, Nav menu - item:issues context:user" aria-label="Issues you created" data-selected-links="/issues /issues/assigned /issues/mentioned /issues" href="https://github.com/issues">
+                Issues
+</a>            </li>
+              <li class="position-relative">
+                <a class="js-selected-navigation-item HeaderNavlink px-lg-2 py-2 py-lg-0" data-ga-click="Header, click, Nav menu - item:marketplace context:user" data-octo-click="marketplace_click" data-octo-dimensions="location:nav_bar" data-selected-links=" /marketplace" href="https://github.com/marketplace">
+                   Marketplace
+</a>                  
+              </li>
+            <li>
+              <a class="js-selected-navigation-item HeaderNavlink px-lg-2 py-2 py-lg-0" data-ga-click="Header, click, Nav menu - item:explore" data-selected-links="/explore /trending /trending/developers /integrations /integrations/feature/code /integrations/feature/collaborate /integrations/feature/ship showcases showcases_search showcases_landing /explore" href="https://github.com/explore">
+                Explore
+</a>            </li>
+          </ul>
+      </nav>
+
+      <div class="d-lg-flex">
+        
+<ul class="user-nav d-lg-flex flex-items-center list-style-none" id="user-links">
+  <li class="dropdown">
+    <span class="d-none d-lg-block  px-2">
+      
+    <a aria-label="You have unread notifications" class="notification-indicator tooltipped tooltipped-s my-2 my-lg-0 js-socket-channel js-notification-indicator" data-hotkey="g n" data-ga-click="Header, go to notifications, icon:unread" data-channel="notification-changed:12850602" href="https://github.com/notifications">
+        <span class="mail-status unread"></span>
+        <svg class="octicon octicon-bell" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 12v1H0v-1l.73-.58c.77-.77.81-2.55 1.19-4.42C2.69 3.23 6 2 6 2c0-.55.45-1 1-1s1 .45 1 1c0 0 3.39 1.23 4.16 5 .38 1.88.42 3.66 1.19 4.42l.66.58H14zm-7 4c1.11 0 2-.89 2-2H5c0 1.11.89 2 2 2z"></path></svg>
+</a>
+    </span>
+  </li>
+
+  <li class="dropdown">
+    <details class="details-overlay details-reset d-none d-lg-flex px-lg-2 py-2 py-lg-0 flex-items-center">
+      <summary class="HeaderNavlink" aria-label="Create new…" data-ga-click="Header, create new, icon:add" aria-haspopup="menu">
+        <svg class="octicon octicon-plus float-left mr-1 mt-1" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5v2z"></path></svg>
+        <span class="dropdown-caret mt-1"></span>
+      </summary>
+      <details-menu class="dropdown-menu dropdown-menu-sw" role="menu">
+        
+<a role="menuitem" class="dropdown-item" href="https://github.com/new" data-ga-click="Header, create new repository">
+  New repository
+</a>
+
+  <a role="menuitem" class="dropdown-item" href="https://github.com/new/import" data-ga-click="Header, import a repository">
+    Import repository
+  </a>
+
+<a role="menuitem" class="dropdown-item" href="https://gist.github.com/" data-ga-click="Header, create new gist">
+  New gist
+</a>
+
+  <a role="menuitem" class="dropdown-item" href="https://github.com/organizations/new" data-ga-click="Header, create new organization">
+    New organization
+  </a>
+
+
+  <div class="dropdown-divider"></div>
+  <div class="dropdown-header">
+    <span title="tesseract-ocr/tesseract">This repository</span>
+  </div>
+    <a role="menuitem" class="dropdown-item" href="https://github.com/tesseract-ocr/tesseract/issues/new" data-ga-click="Header, create new issue">
+      New issue
+    </a>
+
+
+      </details-menu>
+    </details>
+  </li>
+
+  <li class="dropdown">
+      <a class="d-lg-none HeaderNavlink name tooltipped tooltipped-sw px-lg-2 py-2 py-lg-0" href="https://github.com/kartik-nighania" aria-label="View profile and more" aria-expanded="false" aria-haspopup="false">
+        <img alt="@kartik-nighania" class="avatar float-left mr-1" src="Command%20Line%20Usage%20%C2%B7%20tesseract-ocr_tesseract%20Wiki_files/12850602.jpeg" width="20" height="20">
+        <span class="text-bold">kartik-nighania</span>
+      </a>
+
+    <details class="details-overlay details-reset d-none d-lg-flex pl-lg-2 py-2 py-lg-0 flex-items-center">
+      <summary class="HeaderNavlink name mt-1" aria-label="View profile and more" data-ga-click="Header, show menu, icon:avatar" aria-haspopup="menu">
+        <img alt="@kartik-nighania" class="avatar float-left mr-1" src="Command%20Line%20Usage%20%C2%B7%20tesseract-ocr_tesseract%20Wiki_files/12850602.jpeg" width="20" height="20">
+        <span class="dropdown-caret"></span>
+      </summary>
+      <details-menu class="dropdown-menu dropdown-menu-sw" role="menu">
+        <ul>
+          <li class="header-nav-current-user css-truncate"><a role="menuitem" class="no-underline user-profile-link px-3 pt-2 pb-2 mb-n2 mt-n1 d-block" href="https://github.com/kartik-nighania" data-ga-click="Header, go to profile, text:Signed in as">Signed in as <strong class="css-truncate-target">kartik-nighania</strong></a></li>
+          <li class="dropdown-divider"></li>
+
+
+          <li><a role="menuitem" class="dropdown-item" href="https://github.com/kartik-nighania" data-ga-click="Header, go to profile, text:your profile">Your profile</a></li>
+          <li><a role="menuitem" class="dropdown-item" href="https://github.com/kartik-nighania?tab=repositories" data-ga-click="Header, go to repositories, text:your repositories">Your repositories</a></li>
+
+
+          <li><a role="menuitem" class="dropdown-item" href="https://github.com/kartik-nighania?tab=stars" data-ga-click="Header, go to starred repos, text:your stars">Your stars</a></li>
+            <li><a role="menuitem" class="dropdown-item" href="https://gist.github.com/" data-ga-click="Header, your gists, text:your gists">Your gists</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a role="menuitem" class="dropdown-item" href="https://help.github.com/" data-ga-click="Header, go to help, text:help">Help</a></li>
+          <li><a role="menuitem" class="dropdown-item" href="https://github.com/settings/profile" data-ga-click="Header, go to settings, icon:settings">Settings</a></li>
+          <li>
+            <!-- '"` --><!-- </textarea></xmp> --><form class="logout-form" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="2Pi6NqcjrMO+2te7FJbs1ZuTyNenJhxcqfT/IPYth9AiKDwdJvjbY9DiN1g7XuY0RIKUcIClN3oa6BLvGUfpMA==">
+              <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout" role="menuitem">
+                Sign out
+              </button>
+</form>          </li>
+        </ul>
+      </details-menu>
+    </details>
+  </li>
+</ul>
+
+
+          <!-- '"` --><!-- </textarea></xmp> --><form class="d-lg-none" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="xZyeBdbqV21DbQLPooJVorz+BlB/XRADVDM/zQ6CEvQ/TBguVzEgzS1V4iyNSl9DY+9a91jeOyXnL9IC4eh8FA==">
+            <button type="submit" class="btn-link HeaderNavlink d-block width-full text-left py-2 text-bold" data-ga-click="Header, sign out, icon:logout" style="padding-left: 2px;">
+              <svg class="octicon octicon-sign-out v-align-middle" style="margin-right: 2px;" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9V7H8V5h4V3l4 3-4 3zm-2 3H6V3L2 1h8v3h1V1c0-.55-.45-1-1-1H1C.45 0 0 .45 0 1v11.38c0 .39.22.73.55.91L6 16.01V13h4c.55 0 1-.45 1-1V8h-1v4z"></path></svg>
+              Sign out
+            </button>
+</form>
+        <!-- '"` --><!-- </textarea></xmp> --><form class="sr-only right-0" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="NDoUJXhCOil0oyMQQTsIBaziFzpDPg8rHo3wgyastjrO6pIO+ZlNiRqbw/Nu8wLkc/NLnWS9JA2tkR1MycbY2g==">
+          <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
+            Sign out
+          </button>
+</form>      </div>
+    </div>
+  </div>
+</header>
+
+      
+
+  </div>
+
+  <div id="start-of-content" class="show-on-focus"></div>
+
+    <div id="js-flash-container">
+
+</div>
+
+
+
+  <div role="main" class="application-main " data-commit-hovercards-enabled="">
+        <div itemscope="" itemtype="http://schema.org/SoftwareSourceCode" class="">
+    <div>
+      
+
+
+
+  
+
+
+
+  <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav pt-0 pt-lg-3 ">
+    <div class="repohead-details-container clearfix container-lg p-responsive d-none d-lg-block">
+
+      <ul class="pagehead-actions">
+  <li>
+        <!-- '"` --><!-- </textarea></xmp> --><form data-remote="true" class="js-social-form js-social-container" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="bIH8QVxa9O0Byj/pwPUAcjL7bdLCwSBonuZL2au/MvfcFwgjoN7ZX18f3nC2lrBsVOOPoq2/pcWre39+fccPTw==">      <input type="hidden" name="repository_id" id="repository_id" value="22887094" class="form-control">
+
+      <details class="details-reset details-overlay select-menu float-left">
+        <summary class="btn btn-sm btn-with-count select-menu-button" data-ga-click="Repository, click Watch settings, action:wiki#show" aria-haspopup="menu">
+          <span data-menu-button="">
+              <svg class="octicon octicon-eye v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>
+              Watch
+          </span>
+        </summary>
+        <details-menu class="select-menu-modal position-absolute mt-5" style="z-index: 99;" role="menu">
+          <div class="select-menu-header">
+            <span class="select-menu-title">Notifications</span>
+          </div>
+          <div class="select-menu-list">
+            <button type="submit" name="do" value="included" class="select-menu-item width-full" aria-checked="true" role="menuitemradio">
+              <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"></path></svg>
+              <div class="select-menu-item-text">
+                <span class="select-menu-item-heading">Not watching</span>
+                <span class="description">Be notified only when participating or @mentioned.</span>
+                <span class="hidden-select-button-text" data-menu-button-contents="">
+                  <svg class="octicon octicon-eye v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>
+                  Watch
+                </span>
+              </div>
+            </button>
+
+              <button type="submit" name="do" value="release_only" class="select-menu-item width-full" aria-checked="false" role="menuitemradio">
+                <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"></path></svg>
+                <div class="select-menu-item-text">
+                  <span class="select-menu-item-heading">Releases only</span>
+                  <span class="description">Be notified of new releases, and when participating or @mentioned.</span>
+                  <span class="hidden-select-button-text" data-menu-button-contents="">
+                    <svg class="octicon octicon-eye v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>
+                    Unwatch releases
+                  </span>
+                </div>
+              </button>
+
+            <button type="submit" name="do" value="subscribed" class="select-menu-item width-full" aria-checked="false" role="menuitemradio">
+              <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"></path></svg>
+              <div class="select-menu-item-text">
+                <span class="select-menu-item-heading">Watching</span>
+                <span class="description">Be notified of all conversations.</span>
+                <span class="hidden-select-button-text" data-menu-button-contents="">
+                  <svg class="octicon octicon-eye v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>
+                  Unwatch
+                </span>
+              </div>
+            </button>
+
+            <button type="submit" name="do" value="ignore" class="select-menu-item width-full" aria-checked="false" role="menuitemradio">
+              <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"></path></svg>
+              <div class="select-menu-item-text">
+                <span class="select-menu-item-heading">Ignoring</span>
+                <span class="description">Never be notified.</span>
+                <span class="hidden-select-button-text" data-menu-button-contents="">
+                  <svg class="octicon octicon-mute v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 2.81v10.38c0 .67-.81 1-1.28.53L3 10H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h2l3.72-3.72C7.19 1.81 8 2.14 8 2.81zm7.53 3.22l-1.06-1.06-1.97 1.97-1.97-1.97-1.06 1.06L11.44 8 9.47 9.97l1.06 1.06 1.97-1.97 1.97 1.97 1.06-1.06L13.56 8l1.97-1.97z"></path></svg>
+                  Stop ignoring
+                </span>
+              </div>
+            </button>
+          </div>
+        </details-menu>
+      </details>
+      <a class="social-count js-social-count" href="https://github.com/tesseract-ocr/tesseract/watchers" aria-label="1452 users are watching this repository">
+        1,452
+      </a>
+</form>
+  </li>
+
+  <li>
+    
+  <div class="js-toggler-container js-social-container starring-container ">
+    <!-- '"` --><!-- </textarea></xmp> --><form class="starred js-social-form" action="/tesseract-ocr/tesseract/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="WjGZw/K5xWboZuARGItQ1VHwkvi8J3MAR4q3jEAklziW/j91Y1fr8vVDC/RkhPupYZX+Adwo/GRmPYLgJkKT3Q==">
+      <input type="hidden" name="context" value="repository">
+      <button type="submit" class="btn btn-sm btn-with-count js-toggler-target" aria-label="Unstar this repository" title="Unstar tesseract-ocr/tesseract" data-ga-click="Repository, click unstar button, action:wiki#show; text:Unstar">
+        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>
+        Unstar
+      </button>
+        <a class="social-count js-social-count" href="https://github.com/tesseract-ocr/tesseract/stargazers" aria-label="22899 users starred this repository">
+          22,899
+        </a>
+</form>
+    <!-- '"` --><!-- </textarea></xmp> --><form class="unstarred js-social-form" action="/tesseract-ocr/tesseract/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="xuppHwxQ4+vfAIdmpfJXsKRNzinMta54rCYvyPVNkbBRsxPqID2uJJJU5Ua/rIsWyHkmAI791YwsLKb5sm3c8A==">
+      <input type="hidden" name="context" value="repository">
+      <button type="submit" class="btn btn-sm btn-with-count js-toggler-target" aria-label="Star this repository" title="Star tesseract-ocr/tesseract" data-ga-click="Repository, click star button, action:wiki#show; text:Star">
+        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>
+        Star
+      </button>
+        <a class="social-count js-social-count" href="https://github.com/tesseract-ocr/tesseract/stargazers" aria-label="22899 users starred this repository">
+          22,899
+        </a>
+</form>  </div>
+
+  </li>
+
+  <li>
+          <details class="details-reset details-overlay details-overlay-dark d-inline-block float-left">
+            <summary class="btn btn-sm btn-with-count" title="Fork your own copy of tesseract-ocr/tesseract to your account" data-ga-click="Repository, show fork modal, action:wiki#show; text:Fork" aria-haspopup="dialog">
+              <svg class="octicon octicon-repo-forked v-align-text-bottom" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+              Fork
+            </summary>
+            <details-dialog class="anim-fade-in fast Box Box--overlay d-flex flex-column" role="dialog">
+              <div class="Box-header">
+                <button class="Box-btn-octicon btn-octicon float-right" type="button" aria-label="Close dialog" data-close-dialog="">
+                  <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"></path></svg>
+                </button>
+                <h3 class="Box-title">Fork tesseract</h3>
+              </div>
+              <div class="overflow-auto text-center">
+                
+  <div class="p-4">
+    <h3 class="h3 text-normal pb-3">
+      You've already forked tesseract
+    </h3>
+
+    <div class="d-flex flex-column flex-items-start">
+          <!-- '"` --><!-- </textarea></xmp> --><form class="button_to" method="get" action="/kartik-nighania/tesseract"><button type="submit" name="organization" value="kartik-nighania" tabindex="0" class="btn-link f5 text-bold my-2 tooltipped tooltipped-se tooltipped-align-left-1" aria-label="View fork of kartik-nighania/tesseract.">
+    <div class="d-flex flex-items-center">
+      <svg class="octicon octicon-repo-forked mr-2" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+      kartik-nighania/tesseract
+    </div>
+</button></form>
+    </div>
+  </div>
+
+  <div class="p-4  border-top">
+    <h3 class="h3 pb-3 text-normal">
+      Fork again to a different account
+    </h3>
+
+    <div class="d-flex flex-column flex-items-start">
+          <!-- '"` --><!-- </textarea></xmp> --><form class="button_to" method="post" action="/tesseract-ocr/tesseract/fork"><button type="submit" name="organization" value="DRISHTI-SVNIT" tabindex="0" class="btn-link f5 text-bold my-2 tooltipped tooltipped-se tooltipped-align-left-1" aria-label="Will be created as DRISHTI-SVNIT/tesseract.">
+    <div class="d-flex flex-items-center">
+      <img class="avatar avatar-small mr-2" src="https://avatars0.githubusercontent.com/u/15237250?s=60&amp;v=4" alt="@DRISHTI-SVNIT" width="30" height="30">
+      DRISHTI-SVNIT
+    </div>
+</button><input type="hidden" name="authenticity_token" value="Mv22UDw7kJMWWBaF2YKYK7WWJ73dZo3HmQ6gdp1d+pMcVC//viSqCNL+BhxY2rS/2+Vh7vYWCNcFVmdwLiBkyQ=="></form>
+    </div>
+  </div>
+
+  <div class="p-4 border-top">
+    <h3 class="h3 pb-3 text-normal">
+      Can’t find what you’re looking for?
+    </h3>
+
+    <p>You don’t have permission to fork to these organizations:</p>
+
+    <ul class="list-style-none">
+        <li class="mb-1">
+          <a class="d-block" href="https://github.com/mlpack">
+          <img class="avatar" src="https://avatars2.githubusercontent.com/u/10216045?s=40&amp;v=4" alt="@mlpack" width="20" height="20">
+          mlpack
+</a>        </li>
+    </ul>
+  </div>
+
+              </div>
+            </details-dialog>
+          </details>
+
+    <a href="https://github.com/tesseract-ocr/tesseract/network/members" class="social-count" aria-label="4506 users forked this repository">
+      4,506
+    </a>
+  </li>
+</ul>
+
+      <h1 class="public ">
+  <svg class="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+  <span class="author" itemprop="author"><a class="url fn" rel="author" data-hovercard-type="organization" data-hovercard-url="/orgs/tesseract-ocr/hovercard" href="https://github.com/tesseract-ocr" aria-describedby="hovercard-aria-description">tesseract-ocr</a></span><!--
+--><span class="path-divider">/</span><!--
+--><strong itemprop="name"><a data-pjax="#js-repo-pjax-container" href="https://github.com/tesseract-ocr/tesseract">tesseract</a></strong>
+
+</h1>
+
+    </div>
+    
+<nav class="reponav js-repo-nav js-sidenav-container-pjax container-lg p-responsive d-none d-lg-block" itemscope="" itemtype="http://schema.org/BreadcrumbList" aria-label="Repository" data-pjax="#js-repo-pjax-container">
+
+  <span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a class="js-selected-navigation-item reponav-item" itemprop="url" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /tesseract-ocr/tesseract" href="https://github.com/tesseract-ocr/tesseract">
+      <svg class="octicon octicon-code" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"></path></svg>
+      <span itemprop="name">Code</span>
+      <meta itemprop="position" content="1">
+</a>  </span>
+
+    <span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a itemprop="url" data-hotkey="g i" class="js-selected-navigation-item reponav-item" data-selected-links="repo_issues repo_labels repo_milestones /tesseract-ocr/tesseract/issues" href="https://github.com/tesseract-ocr/tesseract/issues">
+        <svg class="octicon octicon-issue-opened" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg>
+        <span itemprop="name">Issues</span>
+        <span class="Counter">185</span>
+        <meta itemprop="position" content="2">
+</a>    </span>
+
+  <span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a data-hotkey="g p" itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_pulls checks /tesseract-ocr/tesseract/pulls" href="https://github.com/tesseract-ocr/tesseract/pulls">
+      <svg class="octicon octicon-git-pull-request" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+      <span itemprop="name">Pull requests</span>
+      <span class="Counter">11</span>
+      <meta itemprop="position" content="3">
+</a>  </span>
+
+
+    <a data-hotkey="g b" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /tesseract-ocr/tesseract/projects" href="https://github.com/tesseract-ocr/tesseract/projects">
+      <svg class="octicon octicon-project" viewBox="0 0 15 16" version="1.1" width="15" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"></path></svg>
+      Projects
+      <span class="Counter">1</span>
+</a>
+
+    <a class="js-selected-navigation-item selected reponav-item" data-hotkey="g w" aria-current="page" data-selected-links="repo_wiki /tesseract-ocr/tesseract/wiki" href="https://github.com/tesseract-ocr/tesseract/wiki">
+      <svg class="octicon octicon-book" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"></path></svg>
+      Wiki
+</a>
+  <a class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse alerts security /tesseract-ocr/tesseract/pulse" href="https://github.com/tesseract-ocr/tesseract/pulse">
+    <svg class="octicon octicon-graph" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"></path></svg>
+    Insights
+</a>
+
+</nav>
+
+  <div class="reponav-wrapper reponav-small d-lg-none">
+  <nav class="reponav js-reponav text-center no-wrap" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+
+    <span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a class="js-selected-navigation-item reponav-item" itemprop="url" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /tesseract-ocr/tesseract" href="https://github.com/tesseract-ocr/tesseract">
+        <span itemprop="name">Code</span>
+        <meta itemprop="position" content="1">
+</a>    </span>
+
+      <span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+        <a itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_issues repo_labels repo_milestones /tesseract-ocr/tesseract/issues" href="https://github.com/tesseract-ocr/tesseract/issues">
+          <span itemprop="name">Issues</span>
+          <span class="Counter">185</span>
+          <meta itemprop="position" content="2">
+</a>      </span>
+
+    <span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_pulls checks /tesseract-ocr/tesseract/pulls" href="https://github.com/tesseract-ocr/tesseract/pulls">
+        <span itemprop="name">Pull requests</span>
+        <span class="Counter">11</span>
+        <meta itemprop="position" content="3">
+</a>    </span>
+
+    <span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /tesseract-ocr/tesseract/projects" href="https://github.com/tesseract-ocr/tesseract/projects">
+        <span itemprop="name">Projects</span>
+        <span class="Counter">1</span>
+        <meta itemprop="position" content="4">
+</a>    </span>
+
+      <span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+        <a itemprop="url" class="js-selected-navigation-item selected reponav-item" aria-current="page" data-selected-links="repo_wiki /tesseract-ocr/tesseract/wiki" href="https://github.com/tesseract-ocr/tesseract/wiki">
+          <span itemprop="name">Wiki</span>
+          <meta itemprop="position" content="5">
+</a>      </span>
+
+    <a class="js-selected-navigation-item reponav-item" data-selected-links="pulse /tesseract-ocr/tesseract/pulse" href="https://github.com/tesseract-ocr/tesseract/pulse">
+      Pulse
+</a>
+      <span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+        <a itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="community /tesseract-ocr/tesseract/community" href="https://github.com/tesseract-ocr/tesseract/community">
+          Community
+</a>      </span>
+
+  </nav>
+</div>
+
+
+  </div>
+
+<div class="container-lg new-discussion-timeline experiment-repo-nav  p-responsive">
+  <div class="repository-content ">
+
+    
+  <div id="wiki-wrapper" class="page">
+  
+
+  <div class="d-flex flex-column flex-md-row gh-header">
+    <h1 class="flex-auto min-width-0 mb-2 mb-md-0 mr-0 mr-md-2 gh-header-title instapaper_title">Command Line Usage</h1>
+
+      <div class="mt-0 mt-lg-1 flex-shrink-0 gh-header-actions">
+        <a href="#wiki-pages-box" class="d-md-none pl-2 float-right">Jump to bottom</a>
+
+          <a class="btn btn-sm ml-0" href="https://github.com/tesseract-ocr/tesseract/wiki/Command-Line-Usage/_edit">Edit</a>
+          <a class="btn btn-sm btn-primary" href="https://github.com/tesseract-ocr/tesseract/wiki/_new">New Page</a>
+      </div>
+  </div>
+
+    <div class="mt-2 mt-md-1 pb-3 gh-header-meta">
+      Shreeshrii edited this page <relative-time datetime="2018-05-01T17:28:20Z" title="May 1, 2018, 10:58 PM GMT+5:30">on May 1</relative-time>
+      ·
+      <a href="https://github.com/tesseract-ocr/tesseract/wiki/Command-Line-Usage/_history" class="muted-link">
+        33 revisions
+      </a>
+    </div>
+
+  <div id="wiki-content" class="d-flex flex-column flex-md-row">
+    <div id="wiki-body" class="mt-4 flex-auto min-width-0 gollum-markdown-content instapaper_body">
+        <div class="markdown-body">
+          <h2>
+<a id="user-content-tesseract-man-page" class="anchor" href="#tesseract-man-page" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://github.com/tesseract-ocr/tesseract/blob/master/doc/tesseract.1.asc">Tesseract 'man' page</a>
+</h2>
+<p>Information updated for Tesseract-4.0.0-beta-1</p>
+<h2>
+<a id="user-content-tesseract---version" class="anchor" href="#tesseract---version" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tesseract --version</h2>
+<pre><code>tesseract 4.0.0-beta.1-207-g984a
+ leptonica-1.76.0
+  libjpeg 8d (libjpeg-turbo 1.3.0) : libpng 1.2.50 : libtiff 4.0.3 : zlib 1.2.8 : libopenjp2 2.3.0
+ Found AVX
+ Found SSE
+</code></pre>
+<h2>
+<a id="user-content-tesseract---help" class="anchor" href="#tesseract---help" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tesseract --help</h2>
+<pre><code>Usage:
+  tesseract --help | --help-extra | --version
+  tesseract --list-langs
+  tesseract imagename outputbase [options...] [configfile...]
+
+OCR options:
+  -l LANG[+LANG]        Specify language(s) used for OCR.
+NOTE: These options must occur before any configfile.
+
+Single options:
+  --help                Show this help message.
+  --help-extra          Show extra help for advanced users.
+  --version             Show version information.
+  --list-langs          List available languages for tesseract engine.
+</code></pre>
+<h2>
+<a id="user-content-tesseract---help-extra" class="anchor" href="#tesseract---help-extra" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tesseract --help-extra</h2>
+<pre><code>Usage:
+  tesseract --help | --help-extra | --help-psm | --help-oem | --version
+  tesseract --list-langs [--tessdata-dir PATH]
+  tesseract --print-parameters [options...] [configfile...]
+  tesseract imagename|imagelist|stdin outputbase|stdout [options...] [configfile...]
+
+OCR options:
+  --tessdata-dir PATH   Specify the location of tessdata path.
+  --user-words PATH     Specify the location of user words file.
+  --user-patterns PATH  Specify the location of user patterns file.
+  -l LANG[+LANG]        Specify language(s) used for OCR.
+  -c VAR=VALUE          Set value for config variables.
+                        Multiple -c arguments are allowed.
+  --psm NUM             Specify page segmentation mode.
+  --oem NUM             Specify OCR Engine mode.
+NOTE: These options must occur before any configfile.
+
+Page segmentation modes:
+  0    Orientation and script detection (OSD) only.
+  1    Automatic page segmentation with OSD.
+  2    Automatic page segmentation, but no OSD, or OCR.
+  3    Fully automatic page segmentation, but no OSD. (Default)
+  4    Assume a single column of text of variable sizes.
+  5    Assume a single uniform block of vertically aligned text.
+  6    Assume a single uniform block of text.
+  7    Treat the image as a single text line.
+  8    Treat the image as a single word.
+  9    Treat the image as a single word in a circle.
+ 10    Treat the image as a single character.
+ 11    Sparse text. Find as much text as possible in no particular order.
+ 12    Sparse text with OSD.
+ 13    Raw line. Treat the image as a single text line,
+       bypassing hacks that are Tesseract-specific.
+
+OCR Engine modes:
+  0    Legacy engine only.
+  1    Neural nets LSTM engine only.
+  2    Legacy + LSTM engines.
+  3    Default, based on what is available.
+
+Single options:
+  -h, --help            Show minimal help message.
+  --help-extra          Show extra help for advanced users.
+  --help-psm            Show page segmentation modes.
+  --help-oem            Show OCR Engine modes.
+  -v, --version         Show version information.
+  --list-langs          List available languages for tesseract engine.
+  --print-parameters    Print tesseract parameters.
+</code></pre>
+<hr>
+<h2>
+<a id="user-content-using-lstm-engine-with-tesseract-40alpha" class="anchor" href="#using-lstm-engine-with-tesseract-40alpha" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using LSTM Engine with Tesseract 4.0alpha</h2>
+<p>Use --oem 1 for LSTM, --oem 0 for Legacy Tesseract</p>
+<p><code>tesseract input.tiff output --oem 1 -l eng</code></p>
+<h2>
+<a id="user-content-add-page-break-in-output" class="anchor" href="#add-page-break-in-output" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add page break in output</h2>
+<p>In older Tesseract (before September 2017) use the config variable as part of command <code>-c include_page_breaks=1 -c page_separator="[PAGE SEPARATOR]"</code></p>
+<p>Default page separator is  the form feed control character.</p>
+<p><code>tesseract -c include_page_breaks=1 input.tiff output</code></p>
+<p>In newer Tesseract (after September 2017) the <code>include_page_breaks</code> config variable has been removed.  The default is now to separate pages with the form feed control character.  Use <code>-c page_separator="[PAGE SEPARATOR]"</code> to use a different separator, and <code>-c page_separator=''</code> to disable page breaks entirely.</p>
+<h2>
+<a id="user-content-ocr-multiple-images-with-one-run-of-tesseract" class="anchor" href="#ocr-multiple-images-with-one-run-of-tesseract" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OCR multiple images with one run of tesseract</h2>
+<p>Prepare a text file that has the path to each image:</p>
+<pre><code>path/to/1.png
+path/to/2.png
+path/to/3.tiff
+</code></pre>
+<p>Save it, and then give its name as input file to Tesseract.</p>
+<p><code>tesseract savedlist output</code></p>
+<h2>
+<a id="user-content-ocr-single-page-of-a-multi-page-tiff" class="anchor" href="#ocr-single-page-of-a-multi-page-tiff" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OCR single page of a multi-page tiff</h2>
+<p>Use the config variable as part of command <code>-c tessedit_page_number=0 </code></p>
+<h2>
+<a id="user-content-integrate-original-image-file-and-detected-text-into-pdf" class="anchor" href="#integrate-original-image-file-and-detected-text-into-pdf" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Integrate original image file and detected text into PDF</h2>
+<p>Use the config variable <code>-c textonly_pdf=1</code> and Merge your image-only and text-only PDF.</p>
+<p>see <a href="https://github.com/tesseract-ocr/tesseract/issues/660#issuecomment-274213632">https://github.com/tesseract-ocr/tesseract/issues/660#issuecomment-274213632</a> for details</p>
+<hr>
+<h2>
+<a id="user-content-simplest-invocation-to-ocr-an-image" class="anchor" href="#simplest-invocation-to-ocr-an-image" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Simplest Invocation to OCR an image</h2>
+<pre><code>tesseract imagename outputbase
+</code></pre>
+<p>This uses <strong>English</strong> as the default language and 3 as the Page Segmentation Mode. The default output format is <strong>text</strong>.</p>
+<p>osd.traineddata, for Orientation and Segmentation and eng.traineddata
+ and other language data files for English should be in the "tessdata" 
+directory. TESSDATA_PREFIX environment variable should be set to the 
+parent directory of "tessdata" directory.</p>
+<p>The following command would give the same result as above, if 
+eng.traineddata and osd.traineddata files are in /usr/share/tessdata 
+directory.</p>
+<pre><code>tesseract --tessdata-dir /usr/share imagename outputbase -l eng -psm 3
+</code></pre>
+<hr>
+<p>Following examples use this image which has text in multiple languages.</p>
+<p><img src="Command%20Line%20Usage%20%C2%B7%20tesseract-ocr_tesseract%20Wiki_files/687474703a2f2f6465762e626c6f672e666169727761792e6e652e6a702f.png" alt="eurotext.png" data-canonical-src="http://dev.blog.fairway.ne.jp/wp-content/uploads/2014/04/eurotext.png"></p>
+<h2>
+<a id="user-content-using-one-language" class="anchor" href="#using-one-language" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using One Language</h2>
+<p>Add '-l LANG' to the command where LANG is three character language 
+code from the list of supported languages. If this is not given then 
+English language is assumed by default.</p>
+<pre><code>tesseract  --tessdata-dir ./ ./testing/eurotext.png ./testing/eurotext-eng -l eng
+</code></pre>
+<p>Output</p>
+<pre><code>The (quick) [brown] {fox} jumps!
+Over the $43,456.78 &lt;lazy&gt; #90 dog
+&amp; duck/goose, as 12.5% of E-mail
+from aspammer@website.com is spam.
+Der ,,schnelle” braune Fuchs springt
+ﬁber den faulen Hund. Le renard brun
+«rapide» saute par-dessus le chien
+paresseux. La volpe marrone rapida
+salta sopra i] cane pigro. El zorro
+marrén répido salta sobre el perro
+perezoso. A raposa marrom répida
+salta sobre 0 C50 preguieoso.
+</code></pre>
+<h2>
+<a id="user-content-using-multiple-languages" class="anchor" href="#using-multiple-languages" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using Multiple Languages</h2>
+<p>Add '-l LANG[+LANG]' to the command line to use multiple languages together for recognition</p>
+<pre><code>tesseract  --tessdata-dir ./ ./testing/eurotext.png ./testing/eurotext-engdeu -l eng+deu
+</code></pre>
+<p>Output</p>
+<pre><code>The (quick) [brown] {fox} jumps!
+Over the $43,456.78 &lt;lazy&gt; #90 dog
+&amp; duck/goose, as 12.5% of E-mail
+from aspammer@website.com is spam.
+Der „schnelle” braune Fuchs springt
+über den faulen Hund. Le renard brun
+«rapide» saute par-dessus le chien
+paresseux. La volpe marrone rapida
+salta sopra il cane pigro. El zorro
+marrön räpido salta sobre el perro
+perezoso. A raposa marrom räpida
+salta sobre o cäo preguieoso.
+</code></pre>
+<h2>
+<a id="user-content-order-of-multiple-languages" class="anchor" href="#order-of-multiple-languages" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Order of multiple languages</h2>
+<p>The output can be different based on the order of languages, so -l eng+hin can give different result than -l hin+eng.</p>
+<p>Following examples use a greyscale version of this image which has text in multiple languages - Hindi and English.</p>
+<p><img src="Command%20Line%20Usage%20%C2%B7%20tesseract-ocr_tesseract%20Wiki_files/68747470733a2f2f692e7974696d672e636f6d2f76692f5a307144654b7.jpeg" alt="bilingual.jpg" data-canonical-src="https://i.ytimg.com/vi/Z0qDeKu7TWA/hqdefault.jpg"></p>
+<p>Using English as primary language and then Hindi</p>
+<pre><code> tesseract  --tessdata-dir ./ ./testing/bilingual.jpg ./testing/bilingual-enghin -l eng+hin
+</code></pre>
+<p>Output</p>
+<pre><code>हिदीसेअंठौजी
+HINDI To
+
+ENGLISH
+—
+</code></pre>
+<p>Using Hindi as primary language and then English</p>
+<pre><code> tesseract  --tessdata-dir ./ ./testing/bilingual.jpg ./testing/bilingual-hineng -l hin+eng
+</code></pre>
+<p>Output</p>
+<pre><code>हिंदी से अंग्रेजी
+H I N D I T o
+
+E N G L I S H
+—
+</code></pre>
+<h2>
+<a id="user-content-searchable-pdf-output" class="anchor" href="#searchable-pdf-output" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Searchable pdf output</h2>
+<pre><code>tesseract  --tessdata-dir ./ ./testing/eurotext.png ./testing/eurotext-eng -l eng pdf
+</code></pre>
+<p>This creates a pdf with the image and a separate searchable text layer with the recognized text.</p>
+<pre><code>tesseract  c:\temp\test_ara.jpg  -l ara  -psm 3  c:\temp\test_ara pdf
+</code></pre>
+<p>Files are attached (source JPG and output PDF)</p>
+<p><img src="Command%20Line%20Usage%20%C2%B7%20tesseract-ocr_tesseract%20Wiki_files/bc160e22-dbd0-11e5-8090-6f3728fcc06d.jpg" alt="test_ara.jpg">
+<img src="Command%20Line%20Usage%20%C2%B7%20tesseract-ocr_tesseract%20Wiki_files/test_ara.pdf" alt="test_ara.pdf"></p>
+<h2>
+<a id="user-content-hocr-output" class="anchor" href="#hocr-output" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HOCR output</h2>
+<p>Use 'hocr' config file by adding hocr at the end of the command to get the HOCR output.</p>
+<pre><code>tesseract  --tessdata-dir ./ ./testing/eurotext.png ./testing/eurotext-eng -l eng hocr
+</code></pre>
+<p>Partial Output</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
+ &lt;head&gt;
+  &lt;title&gt;&lt;/title&gt;
+&lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8" /&gt;
+  &lt;meta name='ocr-system' content='tesseract 3.05.00dev' /&gt;
+  &lt;meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word'/&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class='ocr_page' id='page_1' title='image "./testing/eurotext.png"; bbox 0 0 1024 800; ppageno 0'&gt;
+   &lt;div class='ocr_carea' id='block_1_1' title="bbox 98 66 918 661"&gt;
+    &lt;p class='ocr_par' id='par_1_1' lang='eng' title="bbox 98 66 918 661"&gt;
+     &lt;span class='ocr_line' id='line_1_1' title="bbox 105 66 823 113; baseline 0.015 -18; x_size 39; x_descenders 7; x_ascenders 9"&gt;&lt;span class='ocrx_word' id='word_1_1' title='bbox 105 66 178 97; x_wconf 90'&gt;The&lt;/span&gt; &lt;span class='ocrx_word' id='word_1_2' title='bbox 205 67 347 106; x_wconf 87'&gt;&lt;strong&gt;(quick)&lt;/strong&gt;&lt;/span&gt; &lt;span class='ocrx_word' id='word_1_3' title='bbox 376 69 528 109; x_wconf 89'&gt;[brown]&lt;/span&gt; &lt;span class='ocrx_word' id='word_1_4' title='bbox 559 71 663 110; x_wconf 89'&gt;{fox}&lt;/span&gt; &lt;span class='ocrx_word' id='word_1_5' title='bbox 687 73 823 113; x_wconf 89'&gt;jumps!&lt;/span&gt; 
+     &lt;/span&gt;
+    &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2>
+<a id="user-content-tsv-output-currently-available-in-305-dev-in-master-branch-on-github" class="anchor" href="#tsv-output-currently-available-in-305-dev-in-master-branch-on-github" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TSV output (Currently available in 3.05-dev in master branch on github)</h2>
+<p>Use 'tsv' config file by adding tsv at the end of the command to get the TSV output.</p>
+<pre><code>tesseract  --tessdata-dir ./ ./testing/eurotext.png ./testing/eurotext-eng -l eng tsv
+</code></pre>
+<p>Partial Output</p>
+<pre><code>level	page_num	block_num	par_num	line_num	word_num	left	top	width	height	conf	text
+1	1	0	0	0	0	0	0	1024	800	-1	
+2	1	1	0	0	0	98	66	821	596	-1	
+3	1	1	1	0	0	98	66	821	596	-1	
+4	1	1	1	1	0	105	66	719	48	-1	
+5	1	1	1	1	1	105	66	74	32	90	The
+5	1	1	1	1	2	205	67	143	40	87	(quick)
+5	1	1	1	1	3	376	69	153	41	89	[brown]
+5	1	1	1	1	4	559	71	105	40	89	{fox}
+5	1	1	1	1	5	687	73	137	41	89	jumps!
+4	1	1	1	2	0	104	115	784	51	-1	
+5	1	1	1	2	1	104	115	96	33	91	Over
+5	1	1	1	2	2	224	117	60	32	89	the
+5	1	1	1	2	3	310	117	224	39	88	$43,456.78
+5	1	1	1	2	4	561	121	136	42	92	&lt;lazy&gt;
+5	1	1	1	2	5	722	123	70	32	92	#90
+5	1	1	1	2	6	818	125	70	41	89	dog
+</code></pre>
+<h2>
+<a id="user-content-using-different-page-segmentation-modes" class="anchor" href="#using-different-page-segmentation-modes" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using different Page Segmentation Modes</h2>
+<p>The following examples are using this image with text in Devanagari script and Sanskrit language.</p>
+<p><img src="Command%20Line%20Usage%20%C2%B7%20tesseract-ocr_tesseract%20Wiki_files/81953684-e6ba-11e5-91e8-5c40518e94a6.png" alt="san002.png"></p>
+<pre><code>tesseract   --tessdata-dir /usr/share testing/san002.png testing/san002-psm6 -l san -psm 6 
+</code></pre>
+<p>Output</p>
+<pre><code>विर्व्य 16
+ज्यालत्रुखीसह्स्रनामक्तोव्रम्- नामाकळिट्. 191
+दुर्गासहस्रनामस्तीत्रम्- १ नामांक्ळिन्नू ॰213
+द्रुर्गासहस्रनत्मस्तीन्रम्- २ नामावळिऽ 238
+द्दुगसिद्द्स्रनत्मक्तोत्रम्दकाराद्दि(३) नामाव'ळिऽ 263
+ट्टुगसिहस्रनामक्तोत्रम्- ४ नामावळिइं 300
+पार्वतीं ह्यो) सहस्रनामातोत्रम्- नामावळिऽ’ 329
+द्दुर्गानवाक्षरीन्निशतींनत्माव'क्ति 355
+द्बुर्गाष्टोत्तरङ्प्तनत्मरतोव्रम्- नामावक्ति 360
+र्व्यत्मामस्वोत्रम्- नामाक्ळिऽ 363
+अन्नपूण्स्सिहस्रनत्मस्तीत्रम्- नामावक्ति 365
+अन्नघूर्गाष्टोत्तस्यातनामस्तीन्रम्- नामावक्ति 394
+क्रुलकुर्व्यसहस्रनत्मक्तोत्रम्- कवचम्… नामावळिथ् 397-
+कुमारींसहृस्रनामक्तोन्नम्- नामावळिय् 432
+गङ्ग’म्यासद्वृस्रनप्मक्तोव्रम्- नाम।वक्ति` 457
+गङ्ग’म्याष्टोत्तराप्तनामप्तोत्रम्- नामावळिऽ 488
+गङ्गादातनप्तास्तोत्रम्- नामावक्ति 491
+यमुनासहस्रनामरतोव्रम्- नम्पावळिय् 493
+'शिवगङ्गासद्दृस्रनत्माव'ळि 517
+गम्पत्रीसह्स्रनत्मक्तोत्रम्- नाम।व'ळिऽ (१) 531
+
+tesseract   --tessdata-dir /usr/share testing/san002.png testing/san002-psm3 -l san -psm 3
+</code></pre>
+<p>Output</p>
+<pre><code>ज्यंग्लत्रुखीसह्स्रनामलोत्रम्- नामावळिट्.
+दुर्गासहस्रनामस्तीत्रम्- १ नामाक्ळि
+दुर्गासहस्रनत्मस्तीत्र्दुं'म्- २ नामावळिऽ
+द्बुगसिद्द्स्रनत्मरत्तोत्रम्दकारादि (३) नामावळि
+
+पार्वतीं ह्यो) सहम्रनम्परतोत्रम्- नामावळिऽ’
+
+फुलकुर्व्यसहस्रनत्मक्तोत्रम्-क्ताचम्-नत्माचळिऽ
+
+गम्यत्रीसह्स्रनत्मक्तोत्रम्-नग्मग्वळिऽ(१)
+
+191
+,213
+
+238
+
+300
+329
+355
+360
+
+363.
+
+365
+
+394
+
+397-
+
+432
+
+457
+
+488
+
+491
+
+493
+
+517
+
+531
+</code></pre>
+
+        </div>
+
+        <div id="wiki-footer" class="mt-5 muted-link wiki-footer">
+          <a class="d-block p-3 muted-link text-center border border-dashed rounded-1" href="https://github.com/tesseract-ocr/tesseract/wiki/_new?wiki%5Bname%5D=_Footer"><svg class="octicon octicon-plus mr-1" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5v2z"></path></svg> Add a custom footer</a>
+        </div>
+    </div>
+
+    <div id="wiki-rightbar" class="mt-4 ml-md-6 flex-shrink-0 width-full wiki-rightbar">
+      <div id="wiki-pages-box" class="mb-4 wiki-pages-box js-wiki-pages-box" role="navigation">
+        
+<div class="Box Box--condensed box-shadow">
+  <div class="Box-header js-wiki-toggle-collapse" style="cursor: pointer">
+    <h3 class="Box-title">
+      <svg class="octicon octicon-triangle-down js-wiki-sidebar-toggle-display" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 5l6 6 6-6H0z"></path></svg>
+      <svg class="octicon octicon-triangle-right js-wiki-sidebar-toggle-display d-none" viewBox="0 0 6 16" version="1.1" width="6" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 14l6-6-6-6v12z"></path></svg>
+      Pages <span class="Counter Counter--gray">46</span>
+    </h3>
+  </div>
+  <div class=" js-wiki-sidebar-toggle-display">
+    <div class="filter-bar">
+      <input type="text" id="wiki-pages-filter" class="form-control input-sm input-block js-filterable-field" placeholder="Find a Page…" aria-label="Find a Page…">
+    </div>
+
+    <ul class="m-0 p-0 list-style-none" data-filterable-for="wiki-pages-filter" data-filterable-type="substring">
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki">Home</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/4.0-Accuracy-and-Performance">4.0 Accuracy and Performance</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/4.0-Docker-Containers">4.0 Docker Containers</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/4.0-with-LSTM">4.0 with LSTM</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/4.0x-Changelog">4.0x Changelog</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/4.0x-Common-Errors-and-Resolutions">4.0x Common Errors and Resolutions</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/AddOns">AddOns</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/APIExample">APIExample</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Command-Line-Usage">Command Line Usage</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Compiling">Compiling</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Compiling-%E2%80%93-GitInstallation">Compiling – GitInstallation</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/ControlParams">ControlParams</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Data-Files">Data Files</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Data-Files-Contributions">Data Files Contributions</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Data-Files-in-different-versions">Data Files in different versions</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Data-Files-in-tessdata_fast">Data Files in tessdata_fast</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Documentation">Documentation</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Downloads">Downloads</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/FAQ">FAQ</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/FAQ-Old">FAQ Old</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Fonts">Fonts</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality">ImproveQuality</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Make-Box-Files">Make Box Files</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Making-Box-Files---4.0">Making Box Files   4.0</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/NeuralNetsInTesseract4.00">NeuralNetsInTesseract4.00</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Planning">Planning</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/ReadMe">ReadMe</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/ReleaseNotes">ReleaseNotes</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Technical-Documentation">Technical Documentation</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/TesseractOpenCL">TesseractOpenCL</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/TestingTesseract">TestingTesseract</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/The-Hallucination-Effect">The Hallucination Effect</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Training-Tesseract">Training Tesseract</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Training-Tesseract-3.00%E2%80%933.02">Training Tesseract 3.00–3.02</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Training-Tesseract-3.03%E2%80%933.05">Training Tesseract 3.03–3.05</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Training-Tesseract-%E2%80%93-Make-Box-Files">Training Tesseract – Make Box Files</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/Training-Tesseract-%E2%80%93-tesstrain.sh">Training Tesseract – tesstrain.sh</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/TrainingTesseract">TrainingTesseract</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/TrainingTesseract-4.00">TrainingTesseract 4.00</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/TrainingTesseract-4.00---Finetune">TrainingTesseract 4.00   Finetune</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/TrainingTesseract2">TrainingTesseract2</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/UNLV-Testing-of-Tesseract">UNLV Testing of Tesseract</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/User-App-Example">User App Example</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/User-Projects-%E2%80%93-3rdParty">User Projects – 3rdParty</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/VGSLSpecs">VGSLSpecs</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/tesseract-ocr/tesseract/wiki/ViewerDebugging">ViewerDebugging</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages-link">
+          <button type="button" class="f6 mx-auto btn-link muted-link js-wiki-more-pages-link">
+            Show 31 more pages…
+          </button>
+        </li>
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+        <div class="mb-4">
+          <a class="d-block p-3 muted-link text-center border border-dashed rounded-1" href="https://github.com/tesseract-ocr/tesseract/wiki/_new?wiki%5Bname%5D=_Sidebar"><svg class="octicon octicon-plus mr-1" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5v2z"></path></svg> Add a custom sidebar</a>
+        </div>
+
+      <h5 class="mt-0 mb-2">Clone this wiki locally</h5>
+      <div class="width-full input-group">
+        <input id="wiki-clone-url" type="text" data-autoselect="" class="form-control input-sm text-small text-gray input-monospace" aria-label="Clone URL for this wiki" value="https://github.com/tesseract-ocr/tesseract.wiki.git" readonly="readonly">
+        <span class="input-group-button">
+          <clipboard-copy for="wiki-clone-url" aria-label="Copy to clipboard" class="btn btn-sm zeroclipboard-button" tabindex="0" role="button">
+            <svg class="octicon octicon-clippy" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+          </clipboard-copy>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <div class="modal-backdrop js-touch-events"></div>
+</div>
+
+
+    </div>
+  </div>
+
+  </div>
+
+        
+<div class="footer container-lg p-responsive" role="contentinfo">
+  <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <ul class="list-style-none d-flex flex-wrap col-12 col-lg-6 flex-justify-center flex-lg-justify-start mb-2 mb-lg-0">
+      <li class="mr-3">© 2018 <span title="0.37282s from unicorn-869954b5c6-hww6j">GitHub</span>, Inc.</li>
+        <li class="mr-3"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
+        <li class="mr-3"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
+        <li class="mr-3"><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li class="mr-3"><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+        <li><a data-ga-click="Footer, go to help, text:help" href="https://help.github.com/">Help</a></li>
+    </ul>
+
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon mr-lg-4" href="https://github.com/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+</a>
+   <ul class="list-style-none d-flex flex-wrap col-12 col-lg-6 flex-justify-center flex-lg-justify-end mb-2 mb-lg-0">
+        <li class="mr-3"><a data-ga-click="Footer, go to contact, text:contact" href="https://github.com/contact">Contact GitHub</a></li>
+        <li class="mr-3"><a href="https://github.com/pricing" data-ga-click="Footer, go to Pricing, text:Pricing">Pricing</a></li>
+      <li class="mr-3"><a href="https://developer.github.com/" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li class="mr-3"><a href="https://training.github.com/" data-ga-click="Footer, go to training, text:training">Training</a></li>
+        <li class="mr-3"><a href="https://blog.github.com/" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a data-ga-click="Footer, go to about, text:about" href="https://github.com/about">About</a></li>
+
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+</div>
+
+
+
+  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg>
+    <button type="button" class="flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"></path></svg>
+    </button>
+    You can’t perform that action at this time.
+  </div>
+
+
+    
+    <script crossorigin="anonymous" integrity="sha512-092+yG9tBLtacCexwGKGjTtkuRfZo0YUa8VrsiKW+Zh/nyA2j7MvftFLeoIor9CGQ9uDFYNIcbFDbbTPw7tV3Q==" type="application/javascript" src="Command%20Line%20Usage%20%C2%B7%20tesseract-ocr_tesseract%20Wiki_files/frameworks-176ef037f2b2ddbb94c6810c7bce4ec9.js"></script>
+    
+    <script crossorigin="anonymous" async="async" integrity="sha512-1Q7Ebz9Z7DgGT3k6SxGdGh9qknu6pCoRFuElPmXIGEb3N5iv9d4A1+yXS1Ccquw6OyXLJemfc5HAmtG6zYjgzw==" type="application/javascript" src="Command%20Line%20Usage%20%C2%B7%20tesseract-ocr_tesseract%20Wiki_files/github-2def5cbbebe464dee8b3895e4c146e6a.js"></script>
+    
+      <script crossorigin="anonymous" integrity="sha512-Sbh6IBBheIyLGxM01XCHt9e+gxJYNopkvwAfMqPt58UaiGYfQPfaWe3kYAoCbJtbrXUTfLg2cWmZ1XuedFjZ1A==" type="application/javascript" src="Command%20Line%20Usage%20%C2%B7%20tesseract-ocr_tesseract%20Wiki_files/wiki-afeeb054a0010fbe05e1039a2049ea2c.js"></script>
+
+    
+  <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner d-none">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg>
+    <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+  </div>
+  <div class="facebox" id="facebox" style="display:none;">
+  <div class="facebox-popup">
+    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
+    </div>
+    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
+      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"></path></svg>
+    </button>
+  </div>
+</div>
+
+  <template id="site-details-dialog">
+  <details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark" open="">
+    <summary aria-haspopup="dialog" aria-label="Close dialog"></summary>
+    <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast">
+      <button class="Box-btn-octicon m-0 btn-octicon position-absolute right-0 top-0" type="button" aria-label="Close dialog" data-close-dialog="">
+        <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"></path></svg>
+      </button>
+      <div class="octocat-spinner my-6 js-details-dialog-spinner"></div>
+    </details-dialog>
+  </details>
+</template>
+
+  <div class="Popover js-hovercard-content position-absolute" style="display: none; outline: none;" tabindex="0">
+  <div class="Popover-message Popover-message--bottom-left Popover-message--large Box box-shadow-large" style="width:360px;">
+  </div>
+</div>
+
+<div id="hovercard-aria-description" class="sr-only">
+  Press h to open a hovercard with more details.
+</div>
+
+
+  
+
+
+</div></body></html>
