@@ -1,0 +1,20 @@
+    
+import urllib.parse
+import requests
+
+pnr_number=8435109799
+
+main_api='https://api.railwayapi.com/v2/pnr-status/pnr/'+str(pnr_number)+'/apikey/za3es8lq1e/'
+
+json_data=requests.get(main_api).json()
+
+print(main_api)
+
+print(json_data)
+
+print(json_data['doj'])
+
+print(json_data['passengers'])
+
+print(json_data['from_station'])
+
